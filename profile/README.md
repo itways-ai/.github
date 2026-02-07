@@ -475,13 +475,8 @@ spring.jpa.hibernate.ddl-auto=update
 docker pull rabbitmq:3-management
 
 # Run RabbitMQ container
-docker run -d \
-  --name rabbitmq \
-  -p 5672:5672 \
-  -p 15672:15672 \
-  -e RABBITMQ_DEFAULT_USER=admin \
-  -e RABBITMQ_DEFAULT_PASS=admin123 \
-  rabbitmq:3-management
+docker run -d  --hostname rabbitmq  --name rabbitmq  -p 5672:5672  -p 15672:15672  rabbitmq:3-management
+
 ```
 
 ---
@@ -507,8 +502,8 @@ Update `application.properties` for services using RabbitMQ:
 ```properties
 spring.rabbitmq.host=localhost
 spring.rabbitmq.port=5672
-spring.rabbitmq.username=admin
-spring.rabbitmq.password=admin123
+spring.rabbitmq.username=guest(default)
+spring.rabbitmq.password=guest(default)
 ```
 
 ---
